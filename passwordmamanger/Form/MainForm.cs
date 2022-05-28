@@ -118,15 +118,15 @@ namespace passwordmamanger
 
             System.Diagnostics.Process.Start(site.website);
 
-            IWebDriver driver = new FirefoxDriver();
-            driver.Url = site.website;
-            Actions actions = new Actions(driver);
-            actions.Click(driver.FindElement(By.Id("Email"))).
-                SendKeys(site.Email + Keys.Tab)
-                .SendKeys(Crip.decrypt(site.Password))
-                .Build().Perform();
-            Thread.Sleep(2000);
-            driver.Quit();
+            //IWebDriver driver = new FirefoxDriver();
+            //driver.Url = site.website;
+            //Actions actions = new Actions(driver);
+            //actions.Click(driver.FindElement(By.Id("Email"))).
+            //    SendKeys(site.Email + Keys.Tab)
+            //    .SendKeys(Crip.decrypt(site.Password))
+            //    .Build().Perform();
+            //Thread.Sleep(2000);
+            //driver.Quit();
         }
     }
 }
