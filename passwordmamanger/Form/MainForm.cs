@@ -7,6 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
+using Keys = OpenQA.Selenium.Keys;
+using System.Threading;
 
 namespace passwordmamanger
 {
@@ -14,6 +21,7 @@ namespace passwordmamanger
     {
         UserInfo user;
         Crypto Crip = new Crypto();
+        Db DataBase = new Db();
         public MainForm(UserInfo enteruser)
         {
             InitializeComponent();
@@ -96,6 +104,29 @@ namespace passwordmamanger
             this.Hide();
             newForm.ShowDialog();
             this.Close();
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var firstSelectedItem = listView.SelectedItems[0];
+
+            var filter = Builders<Sites>.Filter;
+
+            var nameweb = filter.Eq(x => x.Name, firstSelectedItem.Text);
+
+            var site = DataBase.getcollectionSties().Find<Sites>(nameweb).FirstOrDefault();
+
+            System.Diagnostics.Process.Start(site.website);
+
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = site.website;
+            Actions actions = new Actions(driver);
+            actions.Click(driver.FindElement(By.Id("Email"))).
+                SendKeys(site.Email + Keys.Tab)
+                .SendKeys(Crip.decrypt(site.Password))
+                .Build().Perform();
+            Thread.Sleep(2000);
+            driver.Quit();
         }
     }
 }

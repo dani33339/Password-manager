@@ -47,7 +47,8 @@ namespace passwordmamanger
             pass.Name = NameBox.Text;
             pass.Password = Crip.Encrypt(PasswordBox.Text);
             pass.Email = EmailBox.Text;
-            pass.UserName = UserNameBox.Text;           
+            pass.UserName = UserNameBox.Text;
+            pass.website = "www" + "." + NameBox.Text + "." + "com";
             DataBase.getcollectionSties().InsertOne(pass);
 
             user.sites.Add(pass);

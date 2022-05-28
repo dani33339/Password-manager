@@ -34,8 +34,8 @@
             this.EditPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label2 = new System.Windows.Forms.Label();
             this.EditAccount = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.SerchPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.NewPassword_btn = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.SerchPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel2 = new System.Windows.Forms.Panel();
             this.exitBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -154,32 +154,6 @@
             this.EditAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.EditAccount.Click += new System.EventHandler(this.EditAccount_Click);
             // 
-            // SerchPassBtn
-            // 
-            this.SerchPassBtn.ActiveBorderThickness = 1;
-            this.SerchPassBtn.ActiveCornerRadius = 20;
-            this.SerchPassBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
-            this.SerchPassBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
-            this.SerchPassBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
-            this.SerchPassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.SerchPassBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SerchPassBtn.BackgroundImage")));
-            this.SerchPassBtn.ButtonText = "Serch Password";
-            this.SerchPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SerchPassBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SerchPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SerchPassBtn.IdleBorderThickness = 1;
-            this.SerchPassBtn.IdleCornerRadius = 20;
-            this.SerchPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
-            this.SerchPassBtn.IdleForecolor = System.Drawing.Color.Transparent;
-            this.SerchPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.SerchPassBtn.Location = new System.Drawing.Point(240, 69);
-            this.SerchPassBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.SerchPassBtn.Name = "SerchPassBtn";
-            this.SerchPassBtn.Size = new System.Drawing.Size(167, 50);
-            this.SerchPassBtn.TabIndex = 32;
-            this.SerchPassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.SerchPassBtn.Click += new System.EventHandler(this.SerchPassBtn_Click);
-            // 
             // NewPassword_btn
             // 
             this.NewPassword_btn.ActiveBorderThickness = 1;
@@ -205,6 +179,32 @@
             this.NewPassword_btn.TabIndex = 31;
             this.NewPassword_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.NewPassword_btn.Click += new System.EventHandler(this.NewPassword_btn_Click);
+            // 
+            // SerchPassBtn
+            // 
+            this.SerchPassBtn.ActiveBorderThickness = 1;
+            this.SerchPassBtn.ActiveCornerRadius = 20;
+            this.SerchPassBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
+            this.SerchPassBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.SerchPassBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
+            this.SerchPassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.SerchPassBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SerchPassBtn.BackgroundImage")));
+            this.SerchPassBtn.ButtonText = "Serch Password";
+            this.SerchPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SerchPassBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SerchPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SerchPassBtn.IdleBorderThickness = 1;
+            this.SerchPassBtn.IdleCornerRadius = 20;
+            this.SerchPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.SerchPassBtn.IdleForecolor = System.Drawing.Color.Transparent;
+            this.SerchPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
+            this.SerchPassBtn.Location = new System.Drawing.Point(240, 69);
+            this.SerchPassBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.SerchPassBtn.Name = "SerchPassBtn";
+            this.SerchPassBtn.Size = new System.Drawing.Size(167, 50);
+            this.SerchPassBtn.TabIndex = 32;
+            this.SerchPassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SerchPassBtn.Click += new System.EventHandler(this.SerchPassBtn_Click);
             // 
             // panel2
             // 
@@ -266,6 +266,7 @@
             this.listView.TabIndex = 47;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // Name
             // 
