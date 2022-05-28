@@ -30,7 +30,7 @@ namespace passwordmamanger
 
             var userfilter = filter.Eq(x => x.UserName, user);
 
-            var backcall = DataBase.getcollection().Find<UserInfo>(userfilter).FirstOrDefault();
+            var backcall = DataBase.getcollectionUser().Find<UserInfo>(userfilter).FirstOrDefault();
 
             if (backcall != null)
                 return true;
@@ -43,7 +43,7 @@ namespace passwordmamanger
 
         public bool CheckPassword(string password)
         {
-            if (password.Length < 6 || password.Length > 10)
+            if (password.Length != 8)
                 return false;
             string digits = new String(password.Where(Char.IsDigit).ToArray());
             string letters = new String(password.Where(Char.IsLetter).ToArray());
@@ -106,6 +106,11 @@ namespace passwordmamanger
 
         private void Registration_btn_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(username_textbox.Text) || String.IsNullOrEmpty(nameBox.Text) || String.IsNullOrEmpty(EmailBox.Text))
+            {
+                MessageBox.Show("הכנס את כל הפרטים");
+                return;
+            }
             if (passwordbox.Text != RePasswordBox.Text)
             {
                 MessageBox.Show("הסיסמאות לא תואמות", "אזהרה", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -114,13 +119,13 @@ namespace passwordmamanger
 
             if (!CheckUser(username_textbox.Text))
             {
-                MessageBox.Show("שם המשתמש לא תקין\n שם משתמש - מכיל בין 6 ל 8 תווים. מתוך התווים, לכל היותר 2 ספרות וכל השאר אותיות ", "אזהרה", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("שם המשתמש לא תקין\n שם משתמש - מכיל בין 6 ל 8 תווים. מתוך התווים, לכל היותר 2 ספרות וכל השאר אותיות ", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!CheckPassword(passwordbox.Text))
             {
-                MessageBox.Show("הסיסמא לא תקינה\n סיסמה – בין 6 ל 10 תווים. מכיל לפחות אות אחת, סיפרה אחת ותו מיוחד אחד )!,#,$ וכו'(.", "אזהרה", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The password not strong(password length must be 8 letter,at least include one capital letter,one small letter, and one special simbol)", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -137,9 +142,9 @@ namespace passwordmamanger
             NewUser.FirstName = nameBox.Text;
             NewUser.Password = Crip.Encrypt(passwordbox.Text);
             NewUser.Email = EmailBox.Text;
+            NewUser.sites = new List<Sites>();
 
-
-            DataBase.getcollection().InsertOne(NewUser);
+            DataBase.getcollectionUser().InsertOne(NewUser);
 
             MessageBox.Show("User has been successfully saved.");
             Clear();

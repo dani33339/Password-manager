@@ -58,7 +58,7 @@ namespace passwordmamanger
 
                 var finalfilter = filter.And(userfilter, Passwordfilter);
 
-                var enteruser = DataBase.getcollection().Find<UserInfo>(finalfilter).FirstOrDefault();
+                var enteruser = DataBase.getcollectionUser().Find<UserInfo>(finalfilter).FirstOrDefault();
 
 
 

@@ -44,6 +44,8 @@
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.serchBox = new System.Windows.Forms.TextBox();
+            this.CancelLBtnSth = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,12 +58,11 @@
             this.panel1.Controls.Add(this.EditPassBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.EditAccount);
-            this.panel1.Controls.Add(this.SerchPassBtn);
             this.panel1.Controls.Add(this.NewPassword_btn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 503);
+            this.panel1.Size = new System.Drawing.Size(180, 621);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -108,7 +109,7 @@
             this.EditPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.EditPassBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
             this.EditPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.EditPassBtn.Location = new System.Drawing.Point(6, 306);
+            this.EditPassBtn.Location = new System.Drawing.Point(7, 253);
             this.EditPassBtn.Margin = new System.Windows.Forms.Padding(6);
             this.EditPassBtn.Name = "EditPassBtn";
             this.EditPassBtn.Size = new System.Drawing.Size(166, 50);
@@ -145,7 +146,7 @@
             this.EditAccount.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.EditAccount.IdleForecolor = System.Drawing.Color.Transparent;
             this.EditAccount.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.EditAccount.Location = new System.Drawing.Point(6, 246);
+            this.EditAccount.Location = new System.Drawing.Point(5, 191);
             this.EditAccount.Margin = new System.Windows.Forms.Padding(6);
             this.EditAccount.Name = "EditAccount";
             this.EditAccount.Size = new System.Drawing.Size(167, 50);
@@ -160,7 +161,7 @@
             this.SerchPassBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
             this.SerchPassBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.SerchPassBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
-            this.SerchPassBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.SerchPassBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
             this.SerchPassBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SerchPassBtn.BackgroundImage")));
             this.SerchPassBtn.ButtonText = "Serch Password";
             this.SerchPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -171,12 +172,13 @@
             this.SerchPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.SerchPassBtn.IdleForecolor = System.Drawing.Color.Transparent;
             this.SerchPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.SerchPassBtn.Location = new System.Drawing.Point(6, 187);
+            this.SerchPassBtn.Location = new System.Drawing.Point(240, 69);
             this.SerchPassBtn.Margin = new System.Windows.Forms.Padding(6);
             this.SerchPassBtn.Name = "SerchPassBtn";
             this.SerchPassBtn.Size = new System.Drawing.Size(167, 50);
             this.SerchPassBtn.TabIndex = 32;
             this.SerchPassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SerchPassBtn.Click += new System.EventHandler(this.SerchPassBtn_Click);
             // 
             // NewPassword_btn
             // 
@@ -213,7 +215,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(180, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 48);
+            this.panel2.Size = new System.Drawing.Size(805, 48);
             this.panel2.TabIndex = 1;
             // 
             // exitBtn
@@ -225,7 +227,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.GhostWhite;
             this.exitBtn.Image = ((System.Drawing.Image)(resources.GetObject("exitBtn.Image")));
-            this.exitBtn.Location = new System.Drawing.Point(702, 2);
+            this.exitBtn.Location = new System.Drawing.Point(751, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(43, 41);
             this.exitBtn.TabIndex = 31;
@@ -258,9 +260,9 @@
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(201, 58);
+            this.listView.Location = new System.Drawing.Point(240, 130);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(705, 434);
+            this.listView.Size = new System.Drawing.Size(725, 475);
             this.listView.TabIndex = 47;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -285,17 +287,54 @@
             this.Password.Text = "Password";
             this.Password.Width = 257;
             // 
+            // serchBox
+            // 
+            this.serchBox.Location = new System.Drawing.Point(531, 94);
+            this.serchBox.Name = "serchBox";
+            this.serchBox.Size = new System.Drawing.Size(155, 20);
+            this.serchBox.TabIndex = 48;
+            this.serchBox.Text = "Enter the name";
+            // 
+            // CancelLBtnSth
+            // 
+            this.CancelLBtnSth.ActiveBorderThickness = 1;
+            this.CancelLBtnSth.ActiveCornerRadius = 20;
+            this.CancelLBtnSth.ActiveFillColor = System.Drawing.Color.SlateGray;
+            this.CancelLBtnSth.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.CancelLBtnSth.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
+            this.CancelLBtnSth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.CancelLBtnSth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CancelLBtnSth.BackgroundImage")));
+            this.CancelLBtnSth.ButtonText = "Cancel Serch";
+            this.CancelLBtnSth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelLBtnSth.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelLBtnSth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.CancelLBtnSth.IdleBorderThickness = 1;
+            this.CancelLBtnSth.IdleCornerRadius = 20;
+            this.CancelLBtnSth.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.CancelLBtnSth.IdleForecolor = System.Drawing.Color.Transparent;
+            this.CancelLBtnSth.IdleLineColor = System.Drawing.Color.LightSlateGray;
+            this.CancelLBtnSth.Location = new System.Drawing.Point(415, 86);
+            this.CancelLBtnSth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CancelLBtnSth.Name = "CancelLBtnSth";
+            this.CancelLBtnSth.Size = new System.Drawing.Size(107, 34);
+            this.CancelLBtnSth.TabIndex = 49;
+            this.CancelLBtnSth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CancelLBtnSth.Click += new System.EventHandler(this.CancelLBtnSth_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(930, 503);
+            this.ClientSize = new System.Drawing.Size(985, 621);
+            this.Controls.Add(this.CancelLBtnSth);
+            this.Controls.Add(this.serchBox);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SerchPassBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainForm";
+            
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -304,6 +343,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,5 +364,7 @@
         private System.Windows.Forms.ColumnHeader Email;
         private Bunifu.Framework.UI.BunifuThinButton2 MyPassBtn;
         private Bunifu.Framework.UI.BunifuThinButton2 EditPassBtn;
+        private System.Windows.Forms.TextBox serchBox;
+        private Bunifu.Framework.UI.BunifuThinButton2 CancelLBtnSth;
     }
 }
