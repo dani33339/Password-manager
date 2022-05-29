@@ -14,6 +14,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using Keys = OpenQA.Selenium.Keys;
 using System.Threading;
+using System.Reflection;
 
 namespace passwordmamanger
 {
@@ -22,27 +23,34 @@ namespace passwordmamanger
         UserInfo user;
         Crypto Crip = new Crypto();
         Db DataBase = new Db();
+        IMongoCollection<Sites> collectionsites;
         public MainForm(UserInfo enteruser)
         {
             InitializeComponent();
             user = enteruser;
             List<Sites> SitesList = new List<Sites>();
-
-            foreach (Sites site in user.sites)
+            collectionsites = DataBase.getcollectionSties();
+            foreach (MongoDB.Bson.ObjectId Id in user.sites)
             {
-                if (site!= null)
-                    SitesList.Add(site);
+                if (siteFinder(Id) != null)
+                    SitesList.Add(siteFinder(Id));
             }
 
             foreach (Sites site in SitesList)
             {
                 String[] rowa = { site.Name.ToString(), site.Email.ToString(), site.UserName.ToString(), Crip.decrypt(site.Password).ToString() };
-                ListViewItem item = new ListViewItem(rowa);            
+                ListViewItem item = new ListViewItem(rowa);
                 listView.Items.Add(item);
             }
 
         }
-
+        public Sites siteFinder(MongoDB.Bson.ObjectId Id)
+        {
+            var filter = Builders<Sites>.Filter;
+            var idfilter = filter.Eq(x => x.Id, Id);
+            var site = collectionsites.Find<Sites>(idfilter).FirstOrDefault();
+            return site;
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -108,25 +116,40 @@ namespace passwordmamanger
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             var firstSelectedItem = listView.SelectedItems[0];
 
             var filter = Builders<Sites>.Filter;
 
-            var nameweb = filter.Eq(x => x.Name, firstSelectedItem.Text);
+            var nameweb = filter.Eq(x => x.Name, firstSelectedItem.SubItems[0].Text);
+            
 
             var site = DataBase.getcollectionSties().Find<Sites>(nameweb).FirstOrDefault();
 
-            System.Diagnostics.Process.Start(site.website);
+            string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(path, "geckodriver.exe");
+            service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+            service.HideCommandPromptWindow = true;
+            WebDriver driver = new FirefoxDriver(service);           
+            driver.Navigate().GoToUrl("https://" + site.website);
+            Actions actions = new Actions(driver);
+            actions.Click(driver.FindElement(By.Id("email"))).
+                SendKeys(site.Email + Keys.Tab)
+                .SendKeys(Crip.decrypt(site.Password))
+                .Build().Perform();
+            MainForm newForm = new MainForm(user);
+            this.Hide();
+            newForm.ShowDialog();
+            this.Close();
+        }
 
-            //IWebDriver driver = new FirefoxDriver();
-            //driver.Url = site.website;
-            //Actions actions = new Actions(driver);
-            //actions.Click(driver.FindElement(By.Id("Email"))).
-            //    SendKeys(site.Email + Keys.Tab)
-            //    .SendKeys(Crip.decrypt(site.Password))
-            //    .Build().Perform();
-            //Thread.Sleep(2000);
-            //driver.Quit();
+        private void EditPassBtn_Click(object sender, EventArgs e)
+        {
+            EditPass newForm = new EditPass(user);
+            this.Hide();
+            newForm.ShowDialog();
+            this.Close();
+
         }
     }
 }

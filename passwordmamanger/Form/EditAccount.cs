@@ -64,7 +64,7 @@ namespace passwordmamanger
         {
             if (String.IsNullOrEmpty(EmailBox.Text) || String.IsNullOrEmpty(NameBox.Text) || String.IsNullOrEmpty(PasswordBox.Text))
             {
-                MessageBox.Show("אסור להשאיר שדה ריק");
+                MessageBox.Show("Fill all the filds");
                 return;
             }
 

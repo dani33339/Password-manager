@@ -13,6 +13,6 @@ namespace passwordmamanger
         public String UserName { get; set; }
         public String FirstName { get; set; }
         public String Password { get; set; }
-        public  List<Sites> sites { get; set; }
+        public List<MongoDB.Bson.ObjectId> sites { get; set; }
     }
 }

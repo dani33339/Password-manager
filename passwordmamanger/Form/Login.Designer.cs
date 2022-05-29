@@ -49,7 +49,7 @@
             this.username_textbox.Name = "username_textbox";
             this.username_textbox.Size = new System.Drawing.Size(225, 27);
             this.username_textbox.TabIndex = 4;
-            this.username_textbox.Text = "username";
+            this.username_textbox.Text = "TnRi13";
             this.username_textbox.TextChanged += new System.EventHandler(this.username_textbox_TextChanged);
             // 
             // passwordTextBox
@@ -61,7 +61,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(225, 27);
             this.passwordTextBox.TabIndex = 5;
-            this.passwordTextBox.Text = "password";
+            this.passwordTextBox.Text = "123nton!";
             this.passwordTextBox.UseSystemPasswordChar = true;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 

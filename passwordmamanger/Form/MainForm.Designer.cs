@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.MyPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.EditPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label2 = new System.Windows.Forms.Label();
             this.EditAccount = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -54,7 +53,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.MyPassBtn);
             this.panel1.Controls.Add(this.EditPassBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.EditAccount);
@@ -65,31 +63,6 @@
             this.panel1.Size = new System.Drawing.Size(180, 621);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // MyPassBtn
-            // 
-            this.MyPassBtn.ActiveBorderThickness = 1;
-            this.MyPassBtn.ActiveCornerRadius = 20;
-            this.MyPassBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
-            this.MyPassBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
-            this.MyPassBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
-            this.MyPassBtn.BackColor = System.Drawing.Color.GhostWhite;
-            this.MyPassBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MyPassBtn.BackgroundImage")));
-            this.MyPassBtn.ButtonText = "My Passwords";
-            this.MyPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MyPassBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MyPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.MyPassBtn.IdleBorderThickness = 1;
-            this.MyPassBtn.IdleCornerRadius = 20;
-            this.MyPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
-            this.MyPassBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
-            this.MyPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.MyPassBtn.Location = new System.Drawing.Point(7, 72);
-            this.MyPassBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.MyPassBtn.Name = "MyPassBtn";
-            this.MyPassBtn.Size = new System.Drawing.Size(166, 50);
-            this.MyPassBtn.TabIndex = 49;
-            this.MyPassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EditPassBtn
             // 
@@ -109,12 +82,13 @@
             this.EditPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.EditPassBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
             this.EditPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.EditPassBtn.Location = new System.Drawing.Point(7, 253);
+            this.EditPassBtn.Location = new System.Drawing.Point(7, 191);
             this.EditPassBtn.Margin = new System.Windows.Forms.Padding(6);
             this.EditPassBtn.Name = "EditPassBtn";
             this.EditPassBtn.Size = new System.Drawing.Size(166, 50);
             this.EditPassBtn.TabIndex = 48;
             this.EditPassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EditPassBtn.Click += new System.EventHandler(this.EditPassBtn_Click);
             // 
             // label2
             // 
@@ -146,7 +120,7 @@
             this.EditAccount.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.EditAccount.IdleForecolor = System.Drawing.Color.Transparent;
             this.EditAccount.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.EditAccount.Location = new System.Drawing.Point(5, 191);
+            this.EditAccount.Location = new System.Drawing.Point(5, 129);
             this.EditAccount.Margin = new System.Windows.Forms.Padding(6);
             this.EditAccount.Name = "EditAccount";
             this.EditAccount.Size = new System.Drawing.Size(167, 50);
@@ -172,7 +146,7 @@
             this.NewPassword_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.NewPassword_btn.IdleForecolor = System.Drawing.Color.Transparent;
             this.NewPassword_btn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.NewPassword_btn.Location = new System.Drawing.Point(5, 129);
+            this.NewPassword_btn.Location = new System.Drawing.Point(5, 67);
             this.NewPassword_btn.Margin = new System.Windows.Forms.Padding(6);
             this.NewPassword_btn.Name = "NewPassword_btn";
             this.NewPassword_btn.Size = new System.Drawing.Size(167, 50);
@@ -243,9 +217,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 36);
+            this.label1.Size = new System.Drawing.Size(212, 36);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Password Manager";
+            this.label1.Text = "My passwords";
             // 
             // listView
             // 
@@ -363,7 +337,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 NewPassword_btn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader Email;
-        private Bunifu.Framework.UI.BunifuThinButton2 MyPassBtn;
         private Bunifu.Framework.UI.BunifuThinButton2 EditPassBtn;
         private System.Windows.Forms.TextBox serchBox;
         private Bunifu.Framework.UI.BunifuThinButton2 CancelLBtnSth;

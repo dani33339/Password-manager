@@ -51,7 +51,7 @@ namespace passwordmamanger
             pass.website = "www" + "." + NameBox.Text + "." + "com";
             DataBase.getcollectionSties().InsertOne(pass);
 
-            user.sites.Add(pass);
+            user.sites.Add(pass.Id);
             UpdateDefinition<UserInfo> Sitesupdate = Builders<UserInfo>.Update.Set(x => x.sites, user.sites);
             var filter = Builders<UserInfo>.Filter;
             var userfilter = filter.Eq(x => x.Id, user.Id);

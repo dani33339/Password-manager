@@ -142,7 +142,7 @@ namespace passwordmamanger
             NewUser.FirstName = nameBox.Text;
             NewUser.Password = Crip.Encrypt(passwordbox.Text);
             NewUser.Email = EmailBox.Text;
-            NewUser.sites = new List<Sites>();
+            NewUser.sites = new List<MongoDB.Bson.ObjectId>();
 
             DataBase.getcollectionUser().InsertOne(NewUser);
 
