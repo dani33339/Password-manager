@@ -39,18 +39,26 @@ namespace passwordmamanger
 
         }
 
-        
+
 
         public bool CheckPassword(string password)
         {
             if (password.Length != 8)
                 return false;
-            string digits = new String(password.Where(Char.IsDigit).ToArray());
-            string letters = new String(password.Where(Char.IsLetter).ToArray());
-            password.Where(c => !char.IsLetterOrDigit(c));
-            if (digits.Length == 0 || letters.Length == 0 || password.Length - digits.Length - letters.Length == 0)
+            if (password.Contains(" "))
                 return false;
-            return true;
+            if (!password.Any(char.IsLower))
+                return false;
+            if (!password.Any(char.IsUpper))
+                return false;
+            string specialCh = "!@#$%^&*)(=-+?<>[]}{\\//|~";
+            char[] specialChArray = specialCh.ToCharArray();
+            foreach (char ch in specialChArray)
+            {
+                if (password.Contains(ch))
+                    return true;
+            }
+            return false;
         }
         public void Clear()
         {

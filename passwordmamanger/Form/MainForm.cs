@@ -116,13 +116,13 @@ namespace passwordmamanger
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             var firstSelectedItem = listView.SelectedItems[0];
 
             var filter = Builders<Sites>.Filter;
 
             var nameweb = filter.Eq(x => x.Name, firstSelectedItem.SubItems[0].Text);
-            
+
 
             var site = DataBase.getcollectionSties().Find<Sites>(nameweb).FirstOrDefault();
 
@@ -130,13 +130,17 @@ namespace passwordmamanger
             FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(path, "geckodriver.exe");
             service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
             service.HideCommandPromptWindow = true;
-            WebDriver driver = new FirefoxDriver(service);           
+            WebDriver driver = new FirefoxDriver(service);
+
+            if (site.Name == "facebook") { 
             driver.Navigate().GoToUrl("https://" + site.website);
             Actions actions = new Actions(driver);
             actions.Click(driver.FindElement(By.Id("email"))).
                 SendKeys(site.Email + Keys.Tab)
                 .SendKeys(Crip.decrypt(site.Password))
                 .Build().Perform();
+            }
+
             MainForm newForm = new MainForm(user);
             this.Hide();
             newForm.ShowDialog();

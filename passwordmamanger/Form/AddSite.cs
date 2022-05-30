@@ -99,7 +99,7 @@ namespace passwordmamanger
                 return false;
             if (!password.Any(char.IsUpper))
                 return false;
-            string specialCh = "@#$-=/";
+            string specialCh = "!@#$%^&*)(=-+?<>[]}{\\//|~";
             char[] specialChArray = specialCh.ToCharArray();
             foreach (char ch in specialChArray)
             {

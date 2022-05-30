@@ -11,7 +11,7 @@ namespace passwordmamanger
         static string alphaCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         static string alphaLow = "abcdefghijklmnopqrstuvwxyz";
         static string numerics = "1234567890";
-        static string special = "@#$-=/";
+        static string special = "!@#$%^&*)(=-+?<>[]}{\\//|~";
         string allChars = alphaCaps + alphaLow + numerics + special;
         Random r = new Random();
 
