@@ -18,7 +18,7 @@ namespace passwordmamanger
     {
         Crypto Crip = new Crypto();
         Db DataBase = new Db();
-
+        Random_password random_Password = new Random_password();
         public Registration()
         {
             InitializeComponent();       
@@ -64,7 +64,7 @@ namespace passwordmamanger
         {
             username_textbox.Clear();
             nameBox.Clear();
-            passwordbox.Clear();
+            PasswordBox.Clear();
             RePasswordBox.Clear();
             EmailBox.Clear();
         }
@@ -119,7 +119,7 @@ namespace passwordmamanger
                 MessageBox.Show("הכנס את כל הפרטים");
                 return;
             }
-            if (passwordbox.Text != RePasswordBox.Text)
+            if (PasswordBox.Text != RePasswordBox.Text)
             {
                 MessageBox.Show("הסיסמאות לא תואמות", "אזהרה", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -131,7 +131,7 @@ namespace passwordmamanger
                 return;
             }
 
-            if (!CheckPassword(passwordbox.Text))
+            if (!CheckPassword(PasswordBox.Text))
             {
                 MessageBox.Show("The password not strong(password length must be 8 letter,at least include one capital letter,one small letter, and one special simbol)", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -148,7 +148,7 @@ namespace passwordmamanger
             UserInfo NewUser = new UserInfo();
             NewUser.UserName = username_textbox.Text;         
             NewUser.FirstName = nameBox.Text;
-            NewUser.Password = Crip.Encrypt(passwordbox.Text);
+            NewUser.Password = Crip.Encrypt(PasswordBox.Text);
             NewUser.Email = EmailBox.Text;
             NewUser.sites = new List<MongoDB.Bson.ObjectId>();
 
@@ -170,6 +170,17 @@ namespace passwordmamanger
         private void backBtn_Click(object sender, EventArgs e)
         {
             GoToLogin();
+        }
+
+        private void generateBtn_Click(object sender, EventArgs e)
+        {
+            PasswordBox.Text = random_Password.GenerateRandomStrongPassword();
+            RePasswordBox.Text = PasswordBox.Text;
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

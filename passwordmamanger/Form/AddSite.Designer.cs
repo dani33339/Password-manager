@@ -41,6 +41,7 @@
             this.AddBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.generateBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.BackBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.SuspendLayout();
             // 
             // label1
@@ -212,12 +213,39 @@
             this.ExitBtn.UseVisualStyleBackColor = false;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
+            // BackBtn
+            // 
+            this.BackBtn.ActiveBorderThickness = 1;
+            this.BackBtn.ActiveCornerRadius = 20;
+            this.BackBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
+            this.BackBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.BackBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
+            this.BackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.BackBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackBtn.BackgroundImage")));
+            this.BackBtn.ButtonText = "Back";
+            this.BackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackBtn.IdleBorderThickness = 1;
+            this.BackBtn.IdleCornerRadius = 20;
+            this.BackBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.BackBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
+            this.BackBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
+            this.BackBtn.Location = new System.Drawing.Point(114, 468);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.Size = new System.Drawing.Size(89, 39);
+            this.BackBtn.TabIndex = 65;
+            this.BackBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
             // AddSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(315, 483);
+            this.ClientSize = new System.Drawing.Size(320, 522);
+            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.AddBtn);
@@ -253,5 +281,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 AddBtn;
         private Bunifu.Framework.UI.BunifuThinButton2 generateBtn;
         public System.Windows.Forms.Button ExitBtn;
+        private Bunifu.Framework.UI.BunifuThinButton2 BackBtn;
     }
 }

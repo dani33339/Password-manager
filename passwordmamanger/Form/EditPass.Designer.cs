@@ -53,6 +53,7 @@
             this.EditPassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label7 = new System.Windows.Forms.Label();
             this.GeneratePassBtn = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.DeleteSiteBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -352,7 +353,7 @@
             this.EditPassBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.EditPassBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
             this.EditPassBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.EditPassBtn.Location = new System.Drawing.Point(944, 434);
+            this.EditPassBtn.Location = new System.Drawing.Point(946, 431);
             this.EditPassBtn.Margin = new System.Windows.Forms.Padding(6);
             this.EditPassBtn.Name = "EditPassBtn";
             this.EditPassBtn.Size = new System.Drawing.Size(166, 50);
@@ -397,12 +398,39 @@
             this.GeneratePassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.GeneratePassBtn.Click += new System.EventHandler(this.GeneratePassBtn_Click);
             // 
+            // DeleteSiteBtn
+            // 
+            this.DeleteSiteBtn.ActiveBorderThickness = 1;
+            this.DeleteSiteBtn.ActiveCornerRadius = 20;
+            this.DeleteSiteBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
+            this.DeleteSiteBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.DeleteSiteBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
+            this.DeleteSiteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.DeleteSiteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteSiteBtn.BackgroundImage")));
+            this.DeleteSiteBtn.ButtonText = "Delete Password";
+            this.DeleteSiteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteSiteBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteSiteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DeleteSiteBtn.IdleBorderThickness = 1;
+            this.DeleteSiteBtn.IdleCornerRadius = 20;
+            this.DeleteSiteBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.DeleteSiteBtn.IdleForecolor = System.Drawing.Color.WhiteSmoke;
+            this.DeleteSiteBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
+            this.DeleteSiteBtn.Location = new System.Drawing.Point(966, 479);
+            this.DeleteSiteBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DeleteSiteBtn.Name = "DeleteSiteBtn";
+            this.DeleteSiteBtn.Size = new System.Drawing.Size(121, 39);
+            this.DeleteSiteBtn.TabIndex = 64;
+            this.DeleteSiteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DeleteSiteBtn.Click += new System.EventHandler(this.DeleteSiteBtn_Click);
+            // 
             // EditPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1196, 532);
+            this.Controls.Add(this.DeleteSiteBtn);
             this.Controls.Add(this.GeneratePassBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.EditPassBtn);
@@ -456,5 +484,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 EditPassBtn;
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuThinButton2 GeneratePassBtn;
+        private Bunifu.Framework.UI.BunifuThinButton2 DeleteSiteBtn;
     }
 }

@@ -20,11 +20,13 @@ namespace passwordmamanger
         UserInfo user; 
         Random_password random_Password = new Random_password();
         IMongoCollection<Sites> collectionsites;
+        IMongoCollection<UserInfo> collectionsuer;
         Sites Ssite;
         public EditPass(UserInfo enteruser, string Name = "Name", string Email = "Email", string UserName = "UserName", string Password = "Password", Sites SelectedSite =null)
         {
             InitializeComponent();
             collectionsites = DataBase.getcollectionSties();
+            collectionsuer = DataBase.getcollectionUser();
             user = enteruser;
             Ssite = SelectedSite;
             NameBox.Text = Name;
@@ -161,7 +163,7 @@ namespace passwordmamanger
                 return false;
             if (!password.Any(char.IsUpper))
                 return false;
-            string specialCh = "@#$-=/";
+            string specialCh = "!@#$%^&*)(=-+?<>[]}{\\//|~";
             char[] specialChArray = specialCh.ToCharArray();
             foreach (char ch in specialChArray)
             {
@@ -179,6 +181,29 @@ namespace passwordmamanger
         private void GeneratePassBtn_Click(object sender, EventArgs e)
         {
             PasswordBox.Text = random_Password.GenerateRandomStrongPassword();
+        }
+        public void DeleteSiteInUser(MongoDB.Bson.ObjectId id)
+        {
+            var list = user.sites;
+            int index = list.IndexOf(id);
+            list.RemoveAt(index);
+            UpdateDefinition<UserInfo> Sitesupdate = Builders<UserInfo>.Update.Set(x => x.sites, list);
+            var filter = Builders<UserInfo>.Filter;
+            var userfilter = filter.Eq(x => x.Id, user.Id);
+            DataBase.getcollectionUser().UpdateOne(userfilter, Sitesupdate);
+
+        }
+        private void DeleteSiteBtn_Click(object sender, EventArgs e)
+        {
+            var Filter = Builders<Sites>.Filter.Eq("UserName", UserNameBox.Text);
+
+            Sites site = collectionsites.Find<Sites>(Filter).First();
+            DeleteSiteInUser(site.Id);
+            collectionsites.DeleteOne(Filter);
+            EditPass newForm = new EditPass(user);
+            this.Hide();
+            newForm.ShowDialog();
+            this.Close();         
         }
     }
 }

@@ -24,12 +24,14 @@ namespace passwordmamanger
         Crypto Crip = new Crypto();
         Db DataBase = new Db();
         IMongoCollection<Sites> collectionsites;
+        IMongoCollection<UserInfo> collectionsuer;
         public MainForm(UserInfo enteruser)
         {
             InitializeComponent();
             user = enteruser;
             List<Sites> SitesList = new List<Sites>();
             collectionsites = DataBase.getcollectionSties();
+            collectionsuer = DataBase.getcollectionUser();
             foreach (MongoDB.Bson.ObjectId Id in user.sites)
             {
                 if (siteFinder(Id) != null)

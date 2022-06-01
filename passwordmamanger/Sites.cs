@@ -14,6 +14,11 @@ namespace passwordmamanger
         public String UserName { get; set; }
         public String Email { get; set; }
         public String website { get; set; }
+        public MongoDB.Bson.ObjectId User { get; set; }
 
+        public static explicit operator Sites(Task<Sites> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

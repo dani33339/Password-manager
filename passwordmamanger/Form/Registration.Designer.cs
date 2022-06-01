@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
             this.username_textbox = new System.Windows.Forms.TextBox();
-            this.passwordbox = new System.Windows.Forms.TextBox();
+            this.PasswordBox = new System.Windows.Forms.TextBox();
             this.RePasswordBox = new System.Windows.Forms.TextBox();
             this.EmailBox = new System.Windows.Forms.TextBox();
             this.Registration_btn = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -39,6 +39,7 @@
             this.nameBox = new System.Windows.Forms.TextBox();
             this.backBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.generateBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.SuspendLayout();
             // 
             // username_textbox
@@ -53,18 +54,18 @@
             this.username_textbox.TabIndex = 5;
             this.username_textbox.Text = "username";
             // 
-            // passwordbox
+            // PasswordBox
             // 
-            this.passwordbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.passwordbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordbox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.passwordbox.Location = new System.Drawing.Point(72, 209);
-            this.passwordbox.Name = "passwordbox";
-            this.passwordbox.Size = new System.Drawing.Size(225, 27);
-            this.passwordbox.TabIndex = 6;
-            this.passwordbox.Text = "password";
-            this.passwordbox.TextChanged += new System.EventHandler(this.passwordbox_TextChanged);
+            this.PasswordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PasswordBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBox.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.PasswordBox.Location = new System.Drawing.Point(72, 213);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(225, 27);
+            this.PasswordBox.TabIndex = 6;
+            this.PasswordBox.Text = "password";
+            this.PasswordBox.TextChanged += new System.EventHandler(this.passwordbox_TextChanged);
             // 
             // RePasswordBox
             // 
@@ -72,7 +73,7 @@
             this.RePasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RePasswordBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RePasswordBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.RePasswordBox.Location = new System.Drawing.Point(72, 260);
+            this.RePasswordBox.Location = new System.Drawing.Point(72, 261);
             this.RePasswordBox.Name = "RePasswordBox";
             this.RePasswordBox.Size = new System.Drawing.Size(225, 27);
             this.RePasswordBox.TabIndex = 7;
@@ -85,7 +86,7 @@
             this.EmailBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EmailBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.EmailBox.Location = new System.Drawing.Point(72, 311);
+            this.EmailBox.Location = new System.Drawing.Point(72, 309);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(225, 27);
             this.EmailBox.TabIndex = 8;
@@ -110,7 +111,7 @@
             this.Registration_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.Registration_btn.IdleForecolor = System.Drawing.Color.Transparent;
             this.Registration_btn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.Registration_btn.Location = new System.Drawing.Point(93, 353);
+            this.Registration_btn.Location = new System.Drawing.Point(94, 403);
             this.Registration_btn.Margin = new System.Windows.Forms.Padding(6);
             this.Registration_btn.Name = "Registration_btn";
             this.Registration_btn.Size = new System.Drawing.Size(180, 47);
@@ -172,7 +173,7 @@
             this.backBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
             this.backBtn.IdleForecolor = System.Drawing.Color.Transparent;
             this.backBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
-            this.backBtn.Location = new System.Drawing.Point(136, 403);
+            this.backBtn.Location = new System.Drawing.Point(145, 462);
             this.backBtn.Margin = new System.Windows.Forms.Padding(6);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(85, 42);
@@ -196,13 +197,40 @@
             this.exitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.exitBtn.UseCompatibleTextRendering = true;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // generateBtn
+            // 
+            this.generateBtn.ActiveBorderThickness = 1;
+            this.generateBtn.ActiveCornerRadius = 20;
+            this.generateBtn.ActiveFillColor = System.Drawing.Color.SlateGray;
+            this.generateBtn.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.generateBtn.ActiveLineColor = System.Drawing.Color.DarkSlateGray;
+            this.generateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.generateBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("generateBtn.BackgroundImage")));
+            this.generateBtn.ButtonText = "Generate Password";
+            this.generateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.generateBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.generateBtn.IdleBorderThickness = 1;
+            this.generateBtn.IdleCornerRadius = 20;
+            this.generateBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(118)))));
+            this.generateBtn.IdleForecolor = System.Drawing.Color.Transparent;
+            this.generateBtn.IdleLineColor = System.Drawing.Color.LightSlateGray;
+            this.generateBtn.Location = new System.Drawing.Point(101, 356);
+            this.generateBtn.Name = "generateBtn";
+            this.generateBtn.Size = new System.Drawing.Size(169, 38);
+            this.generateBtn.TabIndex = 31;
+            this.generateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(371, 450);
+            this.ClientSize = new System.Drawing.Size(376, 529);
+            this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.nameBox);
@@ -211,7 +239,7 @@
             this.Controls.Add(this.Registration_btn);
             this.Controls.Add(this.EmailBox);
             this.Controls.Add(this.RePasswordBox);
-            this.Controls.Add(this.passwordbox);
+            this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.username_textbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registration";
@@ -226,7 +254,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox username_textbox;
-        private System.Windows.Forms.TextBox passwordbox;
+        private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.TextBox RePasswordBox;
         private System.Windows.Forms.TextBox EmailBox;
         private Bunifu.Framework.UI.BunifuThinButton2 Registration_btn;
@@ -235,5 +263,6 @@
         private System.Windows.Forms.TextBox nameBox;
         private Bunifu.Framework.UI.BunifuThinButton2 backBtn;
         public System.Windows.Forms.Button exitBtn;
+        private Bunifu.Framework.UI.BunifuThinButton2 generateBtn;
     }
 }

@@ -61,7 +61,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(225, 27);
             this.passwordTextBox.TabIndex = 5;
-            this.passwordTextBox.Text = "123nton!";
+            this.passwordTextBox.Text = "O@5pXJCv";
             this.passwordTextBox.UseSystemPasswordChar = true;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 

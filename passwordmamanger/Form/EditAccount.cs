@@ -18,6 +18,7 @@ namespace passwordmamanger
         Crypto Crip = new Crypto();
         Db DataBase = new Db();
         IMongoCollection<UserInfo> collectionUser;
+        IMongoCollection<Sites> collectionsites;
         UserInfo user;
         public EditAccount(UserInfo User)
         {
@@ -27,6 +28,7 @@ namespace passwordmamanger
             NameBox.Text = user.FirstName;
             EmailBox.Text = user.Email;
             collectionUser = DataBase.getcollectionUser();
+            collectionsites = DataBase.getcollectionSties();
         }
 
       
@@ -49,11 +51,19 @@ namespace passwordmamanger
         {
 
         }
-
+        public void DeleteSites()
+        {
+            foreach (var item in user.sites)
+            {
+                var deleteFilter = Builders<Sites>.Filter.Eq("Id", item);              
+                collectionsites.DeleteOne(deleteFilter);                         
+            }
+        }
         private void DeleteAccBtn_Click(object sender, EventArgs e)
         {
             var deleteFilter = Builders<UserInfo>.Filter.Eq("UserName", user.UserName);
-            collectionUser.DeleteOne(deleteFilter);
+            DeleteSites();
+            collectionUser.DeleteOne(deleteFilter);            
             Login newForm = new Login();
             this.Hide();
             newForm.ShowDialog();

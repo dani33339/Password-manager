@@ -49,6 +49,7 @@ namespace passwordmamanger
             pass.Email = EmailBox.Text;
             pass.UserName = UserNameBox.Text;
             pass.website = "www" + "." + NameBox.Text + "." + "com";
+            pass.User = user.Id;
             DataBase.getcollectionSties().InsertOne(pass);
 
             user.sites.Add(pass.Id);
@@ -114,6 +115,11 @@ namespace passwordmamanger
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            GoMain();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
         {
             GoMain();
         }
