@@ -22,7 +22,7 @@ namespace passwordmamanger
         public Login()
         {
             InitializeComponent();
-           
+
         }
 
 
@@ -36,7 +36,7 @@ namespace passwordmamanger
         {
 
         }
-       
+
 
         private void exit_Click(object sender, EventArgs e)
         {
@@ -64,7 +64,7 @@ namespace passwordmamanger
 
                 if (enteruser != null)
                 {
-                    MessageBox.Show("שלום  " + enteruser.FirstName + "  ", "ניתנה גישה", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("hello  " + enteruser.FirstName + "  ", "access granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     MainForm newForm = new MainForm(enteruser);
                     this.Hide();
@@ -73,7 +73,7 @@ namespace passwordmamanger
                 }
                 else
                 {
-                    MessageBox.Show("סיסמא או שם משתמש לא נכונים", "גישה נדחתה", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("username or password incorrect", "access denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
@@ -94,9 +94,5 @@ namespace passwordmamanger
 
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

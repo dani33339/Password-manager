@@ -151,13 +151,15 @@ namespace passwordmamanger
                         SendKeys(site.Email + Keys.Tab)
                         .SendKeys(Crip.decrypt(site.Password) + Keys.Enter)
                         .Build().Perform();
-                    System.Threading.Thread.Sleep(1000);
-                    if (driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[1]/div/div[2]/div[2]/form/div/div[2]/div[2]")).Text == "The password you’ve entered is incorrect. Forgot Password?")
-                        throw new Exception();
-                    else
+                    System.Threading.Thread.Sleep(6000);
+                    if (driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[1]/span")).Text.Contains("ברוך הבא לפייסבוק"))
                     {
                         MessageBox.Show("You have successfully signed in");
                         return;
+                    }
+                    else
+                    {
+                        throw new Exception();
                     }
                 }
                 catch
@@ -318,7 +320,6 @@ namespace passwordmamanger
                         .SendKeys(Crip.decrypt(site.Password) + Keys.Enter)
                         .Build().Perform();
                     System.Threading.Thread.Sleep(5000);
-                    var a = driver.FindElement(By.XPath("/html/body/c-wiz/div/div[2]/div/c-wiz/c-wiz/div/div[3]/div/div/header/div[2]")).Text;
                     if (driver.FindElement(By.XPath("/html/body/c-wiz/div/div[2]/div/c-wiz/c-wiz/div/div[3]/div/div/header/div[2]")).Text == "תוכל לנהל את המידע ואת הגדרות הפרטיות והאבטחה שלך כדי להתאים את Google לצרכיך. למידע נוסף")
                     {
                         MessageBox.Show("You have successfully signed in");
@@ -350,13 +351,15 @@ namespace passwordmamanger
                     actions.Click(driver.FindElement(By.Name("password")))
                         .SendKeys(Crip.decrypt(site.Password) + Keys.Enter)
                         .Build().Perform();
-                    System.Threading.Thread.Sleep(1000);
-                    if (driver.FindElement(By.XPath("//*[@id='view_container']/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[2]/div[2]/div")).Text == "לא ניתן למצוא את חשבון Google שלך")
-                        throw new Exception();
-                    else
+                    System.Threading.Thread.Sleep(6000);
+                    if (driver.FindElement(By.Id("logo-icon")).Displayed)
                     {
                         MessageBox.Show("You have successfully signed in");
                         return;
+                    }
+                    else
+                    {
+                        throw new Exception();
                     }
                 }
                 catch
@@ -405,7 +408,7 @@ namespace passwordmamanger
                         .SendKeys(Crip.decrypt(site.Password) + Keys.Enter)
                         .Build().Perform();
                     System.Threading.Thread.Sleep(1000);
-                    if (driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/form/div[1]/p")).Text == "The email or password is incorrect. ")
+                    if (driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/form/div[1]/p")).Text.Contains("The email or password is incorrect."))
                         throw new Exception();
                     else
                     {
@@ -418,6 +421,10 @@ namespace passwordmamanger
                     MessageBox.Show("Somthing went wrong check the email and password");
                     return;
                 }
+            }
+            else
+            {
+                driver.Navigate().GoToUrl("https://" + site.website);
             }
 
         }
