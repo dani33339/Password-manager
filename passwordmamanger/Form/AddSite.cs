@@ -16,18 +16,29 @@ namespace passwordmamanger
     {
         Random_password random_Password = new Random_password();
         Db DataBase = new Db();
-        
+
         Crypto Crip = new Crypto();
         UserInfo user;
+
+        Boolean clicked = false;
+
         public AddSite(UserInfo User)
         {
             InitializeComponent();
             user = User;
+            Sitename_label.Visible = false;
+            NameBox.Visible = false;
+            TLD_comboBox.Visible = false;
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(UserNameBox.Text) || String.IsNullOrEmpty(NameBox.Text) || String.IsNullOrEmpty(EmailBox.Text) || String.IsNullOrEmpty(PasswordBox.Text))
+            if (clicked == false)
+            {
+                MessageBox.Show("You have to chose add by name or add by address");
+                return;
+            }
+            if (String.IsNullOrEmpty(UserNameBox.Text) || String.IsNullOrEmpty(NameBox.Text) || String.IsNullOrEmpty(EmailBox.Text) || String.IsNullOrEmpty(PasswordBox.Text) || String.IsNullOrEmpty(TLD_comboBox.Text))
             {
                 MessageBox.Show("Fill all the filds");
                 return;
@@ -48,7 +59,11 @@ namespace passwordmamanger
             pass.Password = Crip.Encrypt(PasswordBox.Text);
             pass.Email = EmailBox.Text;
             pass.UserName = UserNameBox.Text;
-            pass.website = "www" + "." + NameBox.Text + "." + "com";
+            pass.TLD = TLD_comboBox.Text;
+            if (Sitename_label.Text != "Enter site url")
+                pass.website = "www" + "." + NameBox.Text + "." + TLD_comboBox.Text; //if user didn't enter the url
+            else
+                pass.website = NameBox.Text;
             pass.User = user.Id;
             DataBase.getcollectionSties().InsertOne(pass);
 
@@ -67,7 +82,7 @@ namespace passwordmamanger
             NameBox.Clear();
             PasswordBox.Clear();
             EmailBox.Clear();
-            UserNameBox.Clear();          
+            UserNameBox.Clear();
         }
         private bool validMail(string address)
         {
@@ -122,6 +137,27 @@ namespace passwordmamanger
         private void BackBtn_Click(object sender, EventArgs e)
         {
             GoMain();
+        }
+
+        private void Byname_btn_Click(object sender, EventArgs e)
+        {
+            Byname_btn.Visible = false;
+            Byaddress_btn.Visible = false;
+            Sitename_label.Visible = true;
+            NameBox.Visible = true;
+            TLD_comboBox.Visible = true;
+            clicked = true;
+        }
+
+        private void Byaddress_btn_Click(object sender, EventArgs e)
+        {
+            Byaddress_btn.Visible = false;
+            Byname_btn.Visible = false;
+            Sitename_label.Text = "Enter site url";
+            Sitename_label.Visible = true;
+            NameBox.Visible = true;
+            TLD_comboBox.Visible = true;
+            clicked = true;
         }
     }
 }

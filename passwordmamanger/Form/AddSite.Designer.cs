@@ -37,11 +37,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Sitename_label = new System.Windows.Forms.Label();
             this.AddBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.generateBtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.BackBtn = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.TLD_comboBox = new System.Windows.Forms.ComboBox();
+            this.TLD_label = new System.Windows.Forms.Label();
+            this.Byname_btn = new System.Windows.Forms.Button();
+            this.Byaddress_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,11 +53,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Ivory;
-            this.label1.Location = new System.Drawing.Point(53, 9);
+            this.label1.Location = new System.Drawing.Point(12, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 36);
+            this.label1.Size = new System.Drawing.Size(287, 36);
             this.label1.TabIndex = 21;
-            this.label1.Text = "New Password";
+            this.label1.Text = "Add New Password";
             // 
             // UserNameBox
             // 
@@ -132,16 +136,16 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "Email";
             // 
-            // label5
+            // Sitename_label
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gold;
-            this.label5.Location = new System.Drawing.Point(42, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 24);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "Name";
+            this.Sitename_label.AutoSize = true;
+            this.Sitename_label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sitename_label.ForeColor = System.Drawing.Color.Gold;
+            this.Sitename_label.Location = new System.Drawing.Point(42, 79);
+            this.Sitename_label.Name = "Sitename_label";
+            this.Sitename_label.Size = new System.Drawing.Size(115, 24);
+            this.Sitename_label.TabIndex = 61;
+            this.Sitename_label.Text = "Site Name";
             // 
             // AddBtn
             // 
@@ -204,7 +208,7 @@
             this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
             this.ExitBtn.Image = ((System.Drawing.Image)(resources.GetObject("ExitBtn.Image")));
-            this.ExitBtn.Location = new System.Drawing.Point(274, 0);
+            this.ExitBtn.Location = new System.Drawing.Point(339, 12);
             this.ExitBtn.Name = "ExitBtn";
             this.ExitBtn.Size = new System.Drawing.Size(43, 41);
             this.ExitBtn.TabIndex = 64;
@@ -239,17 +243,70 @@
             this.BackBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
+            // TLD_comboBox
+            // 
+            this.TLD_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TLD_comboBox.FormattingEnabled = true;
+            this.TLD_comboBox.Items.AddRange(new object[] {
+            "com",
+            "co.il",
+            "ac.il",
+            "net",
+            "org",
+            "ru"});
+            this.TLD_comboBox.Location = new System.Drawing.Point(288, 111);
+            this.TLD_comboBox.Name = "TLD_comboBox";
+            this.TLD_comboBox.Size = new System.Drawing.Size(94, 21);
+            this.TLD_comboBox.TabIndex = 66;
+            // 
+            // TLD_label
+            // 
+            this.TLD_label.AutoSize = true;
+            this.TLD_label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TLD_label.ForeColor = System.Drawing.Color.Gold;
+            this.TLD_label.Location = new System.Drawing.Point(317, 79);
+            this.TLD_label.Name = "TLD_label";
+            this.TLD_label.Size = new System.Drawing.Size(44, 24);
+            this.TLD_label.TabIndex = 67;
+            this.TLD_label.Text = "TLD";
+            // 
+            // Byname_btn
+            // 
+            this.Byname_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Byname_btn.Location = new System.Drawing.Point(46, 72);
+            this.Byname_btn.Name = "Byname_btn";
+            this.Byname_btn.Size = new System.Drawing.Size(137, 60);
+            this.Byname_btn.TabIndex = 69;
+            this.Byname_btn.Text = "Add by name";
+            this.Byname_btn.UseVisualStyleBackColor = false;
+            this.Byname_btn.Click += new System.EventHandler(this.Byname_btn_Click);
+            // 
+            // Byaddress_btn
+            // 
+            this.Byaddress_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Byaddress_btn.Location = new System.Drawing.Point(224, 73);
+            this.Byaddress_btn.Name = "Byaddress_btn";
+            this.Byaddress_btn.Size = new System.Drawing.Size(137, 60);
+            this.Byaddress_btn.TabIndex = 70;
+            this.Byaddress_btn.Text = "Add by address";
+            this.Byaddress_btn.UseVisualStyleBackColor = false;
+            this.Byaddress_btn.Click += new System.EventHandler(this.Byaddress_btn_Click);
+            // 
             // AddSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(320, 522);
+            this.ClientSize = new System.Drawing.Size(394, 522);
+            this.Controls.Add(this.Byaddress_btn);
+            this.Controls.Add(this.Byname_btn);
+            this.Controls.Add(this.TLD_label);
+            this.Controls.Add(this.TLD_comboBox);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Sitename_label);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -277,10 +334,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Sitename_label;
         private Bunifu.Framework.UI.BunifuThinButton2 AddBtn;
         private Bunifu.Framework.UI.BunifuThinButton2 generateBtn;
         public System.Windows.Forms.Button ExitBtn;
         private Bunifu.Framework.UI.BunifuThinButton2 BackBtn;
+        private System.Windows.Forms.ComboBox TLD_comboBox;
+        private System.Windows.Forms.Label TLD_label;
+        private System.Windows.Forms.Button Byname_btn;
+        private System.Windows.Forms.Button Byaddress_btn;
     }
 }
