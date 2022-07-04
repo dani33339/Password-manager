@@ -19,7 +19,7 @@ Firefox
 Before install this packeges:
 ![7](https://user-images.githubusercontent.com/93151766/177180333-9360efce-1b83-4bb5-adbd-4f17876c82d2.png)
 
-
+Pictures from the project:
 ![1](https://user-images.githubusercontent.com/93151766/177179424-437b2e37-8020-4545-999f-e0b64fbb3f89.png)
 ![2](https://user-images.githubusercontent.com/93151766/177179430-63028306-bbee-46f4-bca5-4bfbc8da96dc.png)
 ![3](https://user-images.githubusercontent.com/93151766/177179431-91012d6b-08e7-433a-84a2-61fc10436a16.png)
