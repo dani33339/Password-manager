@@ -16,6 +16,8 @@ Chrome
 Edge
 Firefox
 
+Before install this packeges:
+![7](https://user-images.githubusercontent.com/93151766/177180333-9360efce-1b83-4bb5-adbd-4f17876c82d2.png)
 
 
 ![1](https://user-images.githubusercontent.com/93151766/177179424-437b2e37-8020-4545-999f-e0b64fbb3f89.png)
