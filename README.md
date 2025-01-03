@@ -15,7 +15,9 @@ Facebook, Amazon, Ebay, Netflix, Fxp, Gmail, Youtube, Stackoverflow, Spotify
 
 supported browser's:
 Chrome
+
 Edge
+
 Firefox
 
 Before install this packeges:
