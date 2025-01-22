@@ -17,6 +17,6 @@ The **Password Manager** is a tool designed to securely store and autofill encry
 ![Screenshot 6](https://user-images.githubusercontent.com/93151766/177179437-ecb119ce-809f-4e98-9e3d-831d20356509.png)
 
 ### Technologies Used:
-- **Java**: For the main application and encryption functionalities.
+- **C#**: For the main application and encryption functionalities.
 - **Encryption**: Used to secure user passwords and sensitive data.
 - **User Interface**: Designed to provide a smooth experience for managing passwords.
